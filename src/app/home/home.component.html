@@ -1,0 +1,36 @@
+<home-carousel></home-carousel>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-sm-3">
+      <home-resource-personnel-list></home-resource-personnel-list>
+      <br>
+      <div class="text-center">
+        <button class="btn btn-primary" routerLink="/register">Register</button>
+      </div>
+    </div>
+
+    <div class="col text-center">
+      <div>
+        <div class="jumbotron" [style.backgroundImage]="'url('+imageUrl+')'">
+          <div class="transbox">
+            <h1 class="display-4">Next Talk in,</h1>
+            <br>
+            <countdown units="Year|Month | Days | Hours | Minutes | Seconds" end="{{time}}"></countdown>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content
+              or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <br>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <h3>View Talks</h3>
+        <home-talk-list></home-talk-list>
+      </div>
+    </div>
+  </div>
+</div>
