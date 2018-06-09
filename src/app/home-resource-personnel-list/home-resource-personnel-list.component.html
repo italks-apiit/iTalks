@@ -1,12 +1,15 @@
 <h3 class="text-center">Resource Personnels</h3>
 
-<div class="list-group">
+<div class="list-group row">
   <a href="#" class="list-group-item list-group-item-action" *ngFor="let rpersonnel of rpersonnels">
     <div class="row">
-      <div class="col-sm-3">
-        <div class="thumbnail" [style.backgroundImage]="'url('+rpersonnel.imageUrl+')'"></div>
-      </div>
-      <div class="col-sm-2">{{rpersonnel.name}}</div>
+      <!-- <div class="col-sm-3"> -->
+        <div class="thumbnail mr-3" [style.backgroundImage]="'url('+rpersonnel.imageUrl+')'"></div>
+      <!-- </div> -->
+      <!-- <div class="col-sm-2"> -->
+        <span class="name mr-3">{{rpersonnel.name}}</span><br/>
+        <span class="name">119</span><br/>
+      <!-- </div> -->
     </div>
   </a>
 

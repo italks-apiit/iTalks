@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
-import {CountDown} from "ng4-date-countdown-timer";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import {CountDown} from "../../node_modules/angular2-simple-countdown/countdown";
 
 
 
@@ -14,6 +13,7 @@ import { HomeTalkListComponent } from './home-talk-list/home-talk-list.component
 import { HomeResourcePersonnelListComponent } from './home-resource-personnel-list/home-resource-personnel-list.component';
 import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
 import { RegisterPersonComponent } from './register-person/register-person.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -25,7 +25,8 @@ import { RegisterPersonComponent } from './register-person/register-person.compo
     HomeTalkListComponent,
     HomeResourcePersonnelListComponent,
     HomeCarouselComponent,
-    RegisterPersonComponent
+    RegisterPersonComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
