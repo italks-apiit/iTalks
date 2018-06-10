@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {CountDown} from "../../node_modules/angular2-simple-countdown/countdown";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CountDown } from "../../node_modules/angular2-simple-countdown/countdown";
+import { DataTableModule } from 'angular5-data-table';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -14,6 +16,8 @@ import { HomeResourcePersonnelListComponent } from './home-resource-personnel-li
 import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
 import { RegisterPersonComponent } from './register-person/register-person.component';
 import { FooterComponent } from './footer/footer.component';
+import { ViewResourcePersonnelsComponent } from './view-resource-personnels/view-resource-personnels.component';
+import { ResourcePersonnelService } from './services/resource-personnel.service';
 
 
 @NgModule({
@@ -26,19 +30,23 @@ import { FooterComponent } from './footer/footer.component';
     HomeResourcePersonnelListComponent,
     HomeCarouselComponent,
     RegisterPersonComponent,
-    FooterComponent
+    FooterComponent,
+    ViewResourcePersonnelsComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(
       [
         { path: '', component: HomeComponent },
         { path: 'register', component: RegisterPersonComponent },
+        { path: 'admin/view-resource-personnels', component: ViewResourcePersonnelsComponent },
       ]
     ),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    DataTableModule.forRoot()
   ],
-  providers: [],
+  providers: [ResourcePersonnelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,12 +10,12 @@ export class HomeResourcePersonnelListComponent implements OnInit {
   rpersonnels = [];
   constructor() {
 
-    this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
-    this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
-    this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
-    this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
-    this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
-    this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
+    // this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
+    // this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
+    // this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
+    // this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
+    // this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
+    // this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
 
   }
 
