@@ -1,6 +1,6 @@
 import { ResourcePersonnelService } from './../services/resource-personnel.service';
-import { Component, OnInit } from '@angular/core';
-import { DataTableResource } from 'angular5-data-table';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DataTableResource, DataTable } from 'angular5-data-table';
 import { RPersonnel } from '../models/RPersonnel';
 import { Observable } from 'rxjs/Observable';
 
@@ -14,6 +14,8 @@ export class ViewResourcePersonnelsComponent implements OnInit {
   items: RPersonnel[] = [];
   itemCount: number;
   tableResource: DataTableResource<RPersonnel>;
+  @ViewChild(DataTable) rPersonnelTable: DataTable;
+
 
   constructor(private resourcePersonnelService: ResourcePersonnelService) { }
 
@@ -37,10 +39,6 @@ export class ViewResourcePersonnelsComponent implements OnInit {
       return;
     }
     this.tableResource.query(params).then(items => this.items = items);
-  }
-
-  do(val){
-    console.log(val);
   }
 
 }

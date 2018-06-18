@@ -12,7 +12,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ResourcePersonnelService {
 
-  private apiURL = "http://bitehunter.vimly.ml/iTalks/rest/resource-personnels/"
+  private apiURL = "http://bitehunter.vimly.ml/iTalks/rest/resource-personnels/";
 
   constructor(private http: HttpClient) { }
 

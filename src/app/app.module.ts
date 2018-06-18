@@ -18,6 +18,8 @@ import { RegisterPersonComponent } from './register-person/register-person.compo
 import { FooterComponent } from './footer/footer.component';
 import { ViewResourcePersonnelsComponent } from './view-resource-personnels/view-resource-personnels.component';
 import { ResourcePersonnelService } from './services/resource-personnel.service';
+import { ViewPastTalkComponent } from './view-past-talk/view-past-talk.component';
+import { PastTalkService } from './services/past-talk.service';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { ResourcePersonnelService } from './services/resource-personnel.service'
     HomeCarouselComponent,
     RegisterPersonComponent,
     FooterComponent,
-    ViewResourcePersonnelsComponent
+    ViewResourcePersonnelsComponent,
+    ViewPastTalkComponent
   ],
   imports: [
     BrowserModule,
@@ -40,13 +43,14 @@ import { ResourcePersonnelService } from './services/resource-personnel.service'
       [
         { path: '', component: HomeComponent },
         { path: 'register', component: RegisterPersonComponent },
+        { path: 'view-past-talk', component: ViewPastTalkComponent },
         { path: 'admin/view-resource-personnels', component: ViewResourcePersonnelsComponent },
       ]
     ),
     NgbModule.forRoot(),
     DataTableModule.forRoot()
   ],
-  providers: [ResourcePersonnelService],
+  providers: [ResourcePersonnelService, PastTalkService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

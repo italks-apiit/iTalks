@@ -1,60 +1,72 @@
 <div class="container">
 
-<data-table
-[items]="items"
-[itemCount]="itemCount"
-(reload)="reloadItems($event)"
->
-
-    <data-table-column
-    [property]="'First_Name'"
-    [header]="'First Name'"
-    [sortable]="true"
-    [resizable]="true"
-    > 
-    </data-table-column>
-
-    <data-table-column
-    [property]="'Last_Name'"
-    [header]="'Last Name'"
-    [sortable]="true"
-    [resizable]="true"
+    <data-table
+    [items]="items"
+    [itemCount]="itemCount"
+    (reload)="reloadItems($event)"
+    [multiSelect]="true"
+    [selectColumn]="true"
+    [substituteRows]="false"
     >
-    </data-table-column>
+    
+        <data-table-column
+        [property]="'First_Name'"
+        [header]="'First Name'"
+        [sortable]="true"
+        [resizable]="true"
+        > 
+        </data-table-column>
+    
+        <data-table-column
+        [property]="'Last_Name'"
+        [header]="'Last Name'"
+        [sortable]="true"
+        [resizable]="true"
+        >
+        </data-table-column>
+    
+        <data-table-column
+        [property]="'Current_Role'"
+        [header]="'Current_Role'"
+        [sortable]="true"
+        [resizable]="true"
+        >
+        </data-table-column>
+    
+        <data-table-column
+        [property]="'Email'"
+        [header]="'Email'"
+        [sortable]="true"
+        [resizable]="true"
+        >
+        </data-table-column>
+    
+        <data-table-column
+        [property]="'CV_Link'"
+        [header]="'CV Link'"
+        [sortable]="true"
+        [resizable]="true"
+        >
+        </data-table-column>
+    
+        <data-table-column
+        [property]="'Person_ID'"
+        [width]="50"
+        >
+            <ng-template #dataTableCell let-item="item">
+                <a (click)="do(item)" [routerLink]="['/admin/products/', item.Person_ID]">Edit</a>
+            </ng-template>
+        </data-table-column>
+    
+    </data-table>
 
-    <data-table-column
-    [property]="'Current_Role'"
-    [header]="'Current_Role'"
-    [sortable]="true"
-    [resizable]="true"
-    >
-    </data-table-column>
+    <div *ngFor="let selected of rPersonnelTable.selectedRows">
+        <span [textContent]="selected.item.Person_ID"></span>
+    </div>
+    
+    <div class="pull-right mt-3">
+        <input type="button" class="btn btn-success" value="Accept">
+        <input type="button" class="btn btn-danger" value="Reject">
+    </div>
 
-    <data-table-column
-    [property]="'Email'"
-    [header]="'Email'"
-    [sortable]="true"
-    [resizable]="true"
-    >
-    </data-table-column>
-
-    <data-table-column
-    [property]="'CV_Link'"
-    [header]="'CV Link'"
-    [sortable]="true"
-    [resizable]="true"
-    >
-    </data-table-column>
-
-    <data-table-column
-    [property]="'Person_ID'"
-    [width]="50"
-    >
-        <ng-template #dataTableCell let-item="item">
-            <a (click)="do(item)" [routerLink]="['/admin/products/', item.Person_ID]">Edit</a>
-        </ng-template>
-    </data-table-column>
-
-</data-table>
-
-</div>
+    </div>
