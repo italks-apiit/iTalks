@@ -10,11 +10,11 @@ export class PastTalkService {
 
   constructor(private http: HttpClient) { }
 
-  getTalkDetails(id: number): Observable<Talk[]> {
+  getTalkDetails(id: number): Observable<Talk> {
     let params = new HttpParams();
     params = params.append("id", id.toString());
 
-    return this.http.get<Talk[]>(this.apiURL, { params: params });
+    return this.http.get<Talk>(this.apiURL, { params: params });
   }
 
 }

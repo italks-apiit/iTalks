@@ -10,7 +10,7 @@ import { Talk } from '../models/Talk';
 export class ViewPastTalkComponent implements OnInit {
 
   constructor(private aboutTalkService: PastTalkService) { }
-  talk: Talk[] = [];
+  talk: Talk;
 
   ngOnInit() {
     this.aboutTalkService.getTalkDetails(1)
