@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CountDown } from "../../node_modules/angular2-simple-countdown/countdown";
 import { DataTableModule } from 'angular5-data-table';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,7 @@ import { HomeResourcePersonnelListComponent } from './home-resource-personnel-li
 import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
 import { RegisterPersonComponent } from './register-person/register-person.component';
 import { FooterComponent } from './footer/footer.component';
-import { ViewResourcePersonnelsComponent } from './view-resource-personnels/view-resource-personnels.component';
+import { ViewResourcePersonnelListComponent } from './view-resource-personnel-list/view-resource-personnel-list.component';
 import { ResourcePersonnelService } from './services/resource-personnel.service';
 import { ViewPastTalkComponent } from './view-past-talk/view-past-talk.component';
 import { PastTalkService } from './services/past-talk.service';
@@ -33,22 +34,24 @@ import { PastTalkService } from './services/past-talk.service';
     HomeCarouselComponent,
     RegisterPersonComponent,
     FooterComponent,
-    ViewResourcePersonnelsComponent,
+    ViewResourcePersonnelListComponent,
     ViewPastTalkComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot(
       [
         { path: '', component: HomeComponent },
         { path: 'register', component: RegisterPersonComponent },
-        { path: 'view-past-talk', component: ViewPastTalkComponent },
-        { path: 'admin/view-resource-personnels', component: ViewResourcePersonnelsComponent },
+        { path: 'view-past-talk/:id', component: ViewPastTalkComponent },
+        
+        { path: 'admin/view-resource-personnel-list', component: ViewResourcePersonnelListComponent },
       ]
     ),
     NgbModule.forRoot(),
-    DataTableModule.forRoot()
+    DataTableModule.forRoot(),
   ],
   providers: [ResourcePersonnelService, PastTalkService],
   bootstrap: [AppComponent]

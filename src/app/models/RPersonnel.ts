@@ -1,11 +1,11 @@
 export class RPersonnel {
     constructor(
-        private Person_ID: number, 
-        private First_Name: string, 
-        private Last_Name: string, 
-        private Current_Role: string, 
-        private Email: string, 
-        private CV_Link: string,     
-        private Image_URL: string,     
+        public Person_ID: number, 
+        public First_Name: string, 
+        public Last_Name: string, 
+        public Current_Role: string, 
+        public Email: string, 
+        public CV_Link: string,     
+        public Image_URL: string,     
     ) { }
 }

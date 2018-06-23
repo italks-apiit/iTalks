@@ -1,4 +1,6 @@
+import { ResourcePersonnelService } from './../services/resource-personnel.service';
 import { Component, OnInit } from '@angular/core';
+import { RPersonnel } from '../models/RPersonnel';
 
 @Component({
   selector: 'home-talk-list',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeTalkListComponent implements OnInit {
 
-  constructor() { }
+  resourcePersonnelList: RPersonnel[] = [];
+
+  constructor(private resourcePersonnelService: ResourcePersonnelService) { }
 
   ngOnInit() {
+    this.resourcePersonnelService.getAllResourcePersonnels()
+    .subscribe(data => {
+      this.resourcePersonnelList = data;
+      console.log(data);
+    });
   }
 
 }

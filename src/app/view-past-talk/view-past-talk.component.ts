@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PastTalkService } from '../services/past-talk.service';
 import { Talk } from '../models/Talk';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'view-past-talk',
@@ -9,11 +10,14 @@ import { Talk } from '../models/Talk';
 })
 export class ViewPastTalkComponent implements OnInit {
 
-  constructor(private aboutTalkService: PastTalkService) { }
-  talk: Talk;
+  constructor(private route: ActivatedRoute, private aboutTalkService: PastTalkService) { }
+  talk = {};
+  id;
 
   ngOnInit() {
-    this.aboutTalkService.getTalkDetails(1)
+
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.aboutTalkService.getTalkDetails(this.id)
       .subscribe(data => {
         this.talk = data;
         console.log(data);

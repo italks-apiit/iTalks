@@ -1,6 +1,12 @@
 /* GLOBAL STYLES
+
+
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
+
+.container{
+  margin-top: 0px;
+}
 
 body {
     padding-top: 3rem;

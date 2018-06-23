@@ -1,3 +1,4 @@
+import { ResourcePersonnelService } from './../services/resource-personnel.service';
 import { RPersonnel } from './../models/RPersonnel';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,19 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-resource-personnel-list.component.css']
 })
 export class HomeResourcePersonnelListComponent implements OnInit {
-  rpersonnels = [];
-  constructor() {
+  resourcePersonnelList: RPersonnel[] = []
 
-    // this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
-    // this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
-    // this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
-    // this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
-    // this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
-    // this.rpersonnels.push(new RPersonnel("Steve","http://api.randomuser.me/portraits/men/49.jpg"));
-
-  }
+  constructor(private resourcePersonnelService: ResourcePersonnelService) { }
 
   ngOnInit() {
+    this.resourcePersonnelService.getAllResourcePersonnels()
+      .subscribe(data => {
+        this.resourcePersonnelList = data;
+        console.log(data);
+      });
   }
 
 }

@@ -6,10 +6,10 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'view-resource-personnels',
-  templateUrl: './view-resource-personnels.component.html',
-  styleUrls: ['./view-resource-personnels.component.css']
+  templateUrl: './view-resource-personnel-list.component.html',
+  styleUrls: ['./view-resource-personnel-list.component.css']
 })
-export class ViewResourcePersonnelsComponent implements OnInit {
+export class ViewResourcePersonnelListComponent implements OnInit {
 
   items: RPersonnel[] = [];
   itemCount: number;
