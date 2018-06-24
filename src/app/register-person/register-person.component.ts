@@ -1,7 +1,6 @@
-import { RPersonnel } from './../models/RPersonnel';
-import { ResourcePersonnelService } from './../services/resource-personnel.service';
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { NewResourcePersonnelService } from '../services/new-resource-personnel.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'register-person',
@@ -12,12 +11,27 @@ export class RegisterPersonComponent {
 
   private linkCV: string;
 
-  constructor(private resourcePersonnelService: ResourcePersonnelService, private elem: ElementRef) { }
+  constructor(
+    private newResourcePersonnelService: NewResourcePersonnelService, 
+    private elem: ElementRef,
+    private toastr: ToastrService
+  ) { }
 
   submitRegister(registerForm) {
+    this.toastr.success('Hello world!', 'Toastr fun!');
 
-    console.log(this.linkCV);
-    this.resourcePersonnelService.addResourcePersonnel(registerForm, this.linkCV);
+    this.newResourcePersonnelService.addResourcePersonnel(registerForm, this.linkCV)
+      .subscribe(data => {
+
+        console.log(data);
+        this.toastr.success('Hello world!', 'Toastr fun!');
+        if(data == 1){
+          this.toastr.success('Hello world!', 'Toastr fun!');
+        }
+        else{
+          this.toastr.error("Registration Unsuccesful!");
+        }
+      });
   }
 
 
@@ -25,13 +39,15 @@ export class RegisterPersonComponent {
     let files = this.elem.nativeElement.querySelector('#selectFile').files;
     let email = this.elem.nativeElement.querySelector('#inputEmail').value;
 
-    console.log(email);
-    
     let formData = new FormData();
     let file = files[0];
-    formData.append('selectFile', file, file.name);
-    this.resourcePersonnelService.uploadFile(formData).subscribe(res => this.linkCV = res);
+    let fileName = email + '_' + file.name;
+    formData.append('selectFile', file, fileName);
+    this.newResourcePersonnelService.uploadFile(formData).subscribe(res => this.linkCV = res);
   }
+
+
+
 
 
 }

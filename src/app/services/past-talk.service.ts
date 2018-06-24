@@ -6,7 +6,7 @@ import { Talk } from '../models/Talk';
 @Injectable()
 export class PastTalkService {
 
-  private apiURL = "http://bitehunter.vimly.ml/iTalks/rest/about-talk/";
+  private apiURL = "http://bitehunter.vimly.ml/iTalks/rest/past-talks/";
 
   constructor(private http: HttpClient) { }
 
@@ -15,6 +15,10 @@ export class PastTalkService {
     params = params.append("id", id.toString());
 
     return this.http.get<Talk>(this.apiURL, { params: params });
+  }
+
+  getAllPastTalks():Observable<Talk[]>{
+    return this.http.get<Talk[]>(this.apiURL);
   }
 
 }

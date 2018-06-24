@@ -6,7 +6,9 @@ import { CountDown } from "../../node_modules/angular2-simple-countdown/countdow
 import { DataTableModule } from 'angular5-data-table';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 
 import { AppComponent } from './app.component';
@@ -18,9 +20,10 @@ import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
 import { RegisterPersonComponent } from './register-person/register-person.component';
 import { FooterComponent } from './footer/footer.component';
 import { ViewResourcePersonnelListComponent } from './view-resource-personnel-list/view-resource-personnel-list.component';
-import { ResourcePersonnelService } from './services/resource-personnel.service';
 import { ViewPastTalkComponent } from './view-past-talk/view-past-talk.component';
 import { PastTalkService } from './services/past-talk.service';
+import { NewResourcePersonnelService } from './services/new-resource-personnel.service';
+import { ActiveResourcePersonnelService } from './services/active-resource-personnel.service';
 
 
 @NgModule({
@@ -35,12 +38,15 @@ import { PastTalkService } from './services/past-talk.service';
     RegisterPersonComponent,
     FooterComponent,
     ViewResourcePersonnelListComponent,
-    ViewPastTalkComponent
+    ViewPastTalkComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    CommonModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(), 
     RouterModule.forRoot(
       [
         { path: '', component: HomeComponent },
@@ -53,7 +59,11 @@ import { PastTalkService } from './services/past-talk.service';
     NgbModule.forRoot(),
     DataTableModule.forRoot(),
   ],
-  providers: [ResourcePersonnelService, PastTalkService],
+  providers: [
+    ActiveResourcePersonnelService, 
+    NewResourcePersonnelService,
+    PastTalkService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

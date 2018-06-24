@@ -1,4 +1,5 @@
-import { ResourcePersonnelService } from './../services/resource-personnel.service';
+import { Talk } from './../models/Talk';
+import { PastTalkService } from './../services/past-talk.service';
 import { Component, OnInit } from '@angular/core';
 import { RPersonnel } from '../models/RPersonnel';
 
@@ -9,16 +10,16 @@ import { RPersonnel } from '../models/RPersonnel';
 })
 export class HomeTalkListComponent implements OnInit {
 
-  resourcePersonnelList: RPersonnel[] = [];
+  pastTalkList: Talk[] = [];
 
-  constructor(private resourcePersonnelService: ResourcePersonnelService) { }
+  constructor(private pastTalkService: PastTalkService) { }
 
   ngOnInit() {
-    this.resourcePersonnelService.getAllResourcePersonnels()
-    .subscribe(data => {
-      this.resourcePersonnelList = data;
-      console.log(data);
-    });
+    this.pastTalkService.getAllPastTalks()
+      .subscribe(data => {
+        this.pastTalkList = data;
+        console.log(data);
+      });
   }
 
 }

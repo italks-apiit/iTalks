@@ -1,6 +1,6 @@
+import { Talk } from './../models/Talk';
 import { Component, OnInit } from '@angular/core';
 import { PastTalkService } from '../services/past-talk.service';
-import { Talk } from '../models/Talk';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewPastTalkComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private aboutTalkService: PastTalkService) { }
-  talk = {};
+  talk: Talk;
   id;
 
   ngOnInit() {

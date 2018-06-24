@@ -11,9 +11,9 @@ export class HomeComponent implements OnInit {
 
   text: any = {
     "Weeks": "Weeks",
-    "Days": "Days", 
+    "Days": "Days",
     "Hours": "Hours",
-    "Minutes": "Minutes", 
+    "Minutes": "Minutes",
     "Seconds": "Seconds"
   };
 
@@ -24,5 +24,4 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

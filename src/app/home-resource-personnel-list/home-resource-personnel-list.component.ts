@@ -1,6 +1,6 @@
-import { ResourcePersonnelService } from './../services/resource-personnel.service';
 import { RPersonnel } from './../models/RPersonnel';
 import { Component, OnInit } from '@angular/core';
+import { ActiveResourcePersonnelService } from '../services/active-resource-personnel.service';
 
 @Component({
   selector: 'home-resource-personnel-list',
@@ -10,10 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomeResourcePersonnelListComponent implements OnInit {
   resourcePersonnelList: RPersonnel[] = []
 
-  constructor(private resourcePersonnelService: ResourcePersonnelService) { }
+  constructor(private activeResourcePersonnelService: ActiveResourcePersonnelService) { }
 
   ngOnInit() {
-    this.resourcePersonnelService.getAllResourcePersonnels()
+    this.activeResourcePersonnelService.getAllResourcePersonnel()
       .subscribe(data => {
         this.resourcePersonnelList = data;
         console.log(data);

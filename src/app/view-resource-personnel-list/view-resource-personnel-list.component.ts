@@ -1,8 +1,10 @@
-import { ResourcePersonnelService } from './../services/resource-personnel.service';
+import { element } from 'protractor';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataTableResource, DataTable } from 'angular5-data-table';
 import { RPersonnel } from '../models/RPersonnel';
 import { Observable } from 'rxjs/Observable';
+import { NewResourcePersonnelService } from '../services/new-resource-personnel.service';
+import { ActiveResourcePersonnelService } from '../services/active-resource-personnel.service';
 
 @Component({
   selector: 'view-resource-personnels',
@@ -15,12 +17,16 @@ export class ViewResourcePersonnelListComponent implements OnInit {
   itemCount: number;
   tableResource: DataTableResource<RPersonnel>;
   @ViewChild(DataTable) rPersonnelTable: DataTable;
+  selectedPersonsStr;
 
 
-  constructor(private resourcePersonnelService: ResourcePersonnelService) { }
+  constructor(
+    private newResourcePersonnelService: NewResourcePersonnelService,
+    private activeResourcePersonnelService: ActiveResourcePersonnelService
+  ) { }
 
   ngOnInit() {
-    this.resourcePersonnelService.getAllResourcePersonnels()
+    this.newResourcePersonnelService.getAllResourcePersonnel()
       .subscribe(data => {
         this.items = data;
         this.initializeTable(data);
@@ -39,6 +45,33 @@ export class ViewResourcePersonnelListComponent implements OnInit {
       return;
     }
     this.tableResource.query(params).then(items => this.items = items);
+  }
+
+  onAccept() {
+
+    this.getSelectedPersons();
+    this.activeResourcePersonnelService.addResourcePersonnel(this.selectedPersonsStr)
+      .subscribe(data => { console.log(data) });
+
+    this.ngOnInit();
+  }
+
+  onReject() {
+    this.getSelectedPersons();
+    this.newResourcePersonnelService.removeResourcePersonnel(this.selectedPersonsStr)
+      .subscribe(data => { console.log(data) });
+
+    this.ngOnInit();
+  }
+
+  getSelectedPersons() {
+    let selectedPersons = [];
+
+    this.rPersonnelTable.selectedRows.forEach(element => {
+      selectedPersons.push(element.item.Person_ID);
+    });
+
+    this.selectedPersonsStr = selectedPersons.join();
   }
 
 }

@@ -48,26 +48,25 @@
         [sortable]="true"
         [resizable]="true"
         >
+            <ng-template #dataTableCell let-item="item">
+                <a [href]="[item.CV_Link]">Download</a>
+            </ng-template>
         </data-table-column>
     
         <data-table-column
         [property]="'Person_ID'"
         [width]="50"
         >
-            <ng-template #dataTableCell let-item="item">
-                <a (click)="do(item)" [routerLink]="['/admin/products/', item.Person_ID]">Edit</a>
-            </ng-template>
+            <!-- <ng-template #dataTableCell let-item="item">
+                <a (click)="do(item)" [routerLink]="['/admin/resource-personnel/', item.Person_ID]">Edit</a>
+            </ng-template> -->
         </data-table-column>
     
     </data-table>
-
-    <div *ngFor="let selected of rPersonnelTable.selectedRows">
-        <span [textContent]="selected.item.Person_ID"></span>
-    </div>
     
     <div class="pull-right mt-3">
-        <input type="button" class="btn btn-success" value="Accept">
-        <input type="button" class="btn btn-danger" value="Reject">
+        <input type="button" class="btn btn-success" (click)="onAccept()" value="Accept">
+        <input type="button" class="btn btn-danger" (click)="onReject()" value="Reject">
     </div>
 
     </div>
