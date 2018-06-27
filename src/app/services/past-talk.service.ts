@@ -6,7 +6,7 @@ import { Talk } from '../models/Talk';
 @Injectable()
 export class PastTalkService {
 
-  private apiURL = "http://bitehunter.vimly.ml/iTalks/rest/past-talks/";
+  private apiURL = "https://bitehunter.vimly.ml/iTalks/rest/past-talks/";
 
   constructor(private http: HttpClient) { }
 

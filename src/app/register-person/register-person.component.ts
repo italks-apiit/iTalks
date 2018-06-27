@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { NewResourcePersonnelService } from '../services/new-resource-personnel.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'register-person',
@@ -12,23 +13,21 @@ export class RegisterPersonComponent {
   private linkCV: string;
 
   constructor(
-    private newResourcePersonnelService: NewResourcePersonnelService, 
+    private newResourcePersonnelService: NewResourcePersonnelService,
     private elem: ElementRef,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   submitRegister(registerForm) {
-    this.toastr.success('Hello world!', 'Toastr fun!');
-
     this.newResourcePersonnelService.addResourcePersonnel(registerForm, this.linkCV)
       .subscribe(data => {
 
-        console.log(data);
-        this.toastr.success('Hello world!', 'Toastr fun!');
-        if(data == 1){
-          this.toastr.success('Hello world!', 'Toastr fun!');
+        if (data == 1) {
+          this.toastr.success('Registration Successful!');
+          this.router.navigateByUrl('');
         }
-        else{
+        else {
           this.toastr.error("Registration Unsuccesful!");
         }
       });

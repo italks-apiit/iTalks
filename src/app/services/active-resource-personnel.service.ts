@@ -9,7 +9,7 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class ActiveResourcePersonnelService {
 
-  private apiURL = "http://bitehunter.vimly.ml/iTalks/rest/active-resource-personnels/";
+  private apiURL = "https://bitehunter.vimly.ml/iTalks/rest/active-resource-personnels/";
 
   constructor(private http: HttpClient) { }
 

@@ -1,7 +1,7 @@
+import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CountDown } from "../../node_modules/angular2-simple-countdown/countdown";
 import { DataTableModule } from 'angular5-data-table';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppComponent } from './app.component';
@@ -24,6 +25,10 @@ import { ViewPastTalkComponent } from './view-past-talk/view-past-talk.component
 import { PastTalkService } from './services/past-talk.service';
 import { NewResourcePersonnelService } from './services/new-resource-personnel.service';
 import { ActiveResourcePersonnelService } from './services/active-resource-personnel.service';
+import { PastTalkFormComponent } from './past-talk-form/past-talk-form.component';
+import { UpcomingTalkFormComponent } from './upcoming-talk-form/upcoming-talk-form.component';
+import { ResourcePersonnelCardComponent } from './resource-personnel-card/resource-personnel-card.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -39,30 +44,39 @@ import { ActiveResourcePersonnelService } from './services/active-resource-perso
     FooterComponent,
     ViewResourcePersonnelListComponent,
     ViewPastTalkComponent,
+    PastTalkFormComponent,
+    UpcomingTalkFormComponent,
+    ResourcePersonnelCardComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     CommonModule,
-    BrowserAnimationsModule, 
-    ToastrModule.forRoot(), 
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     RouterModule.forRoot(
       [
         { path: '', component: HomeComponent },
+        { path: 'login', component: LoginComponent },
         { path: 'register', component: RegisterPersonComponent },
         { path: 'view-past-talk/:id', component: ViewPastTalkComponent },
-        
+        { path: 'upcoming-talk', component: UpcomingTalkFormComponent },
+
         { path: 'admin/view-resource-personnel-list', component: ViewResourcePersonnelListComponent },
+        { path: 'admin/past-talk/new', component: PastTalkFormComponent },
+        { path: 'admin/past-talk/:id', component: PastTalkFormComponent },
       ]
     ),
-    NgbModule.forRoot(),
     DataTableModule.forRoot(),
+    NgbModule.forRoot()
   ],
   providers: [
-    ActiveResourcePersonnelService, 
+    ActiveResourcePersonnelService,
     NewResourcePersonnelService,
     PastTalkService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

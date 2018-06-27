@@ -9,7 +9,7 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class NewResourcePersonnelService {
 
-  private apiURL = "http://bitehunter.vimly.ml/iTalks/rest/new-resource-personnels/";
+  private apiURL = "https://bitehunter.vimly.ml/iTalks/rest/new-resource-personnels/";
 
   constructor(private http: HttpClient) { }
 
@@ -45,7 +45,7 @@ export class NewResourcePersonnelService {
 
 
   public uploadFile(formdata: any) {
-    let _url: string = 'http://bitehunter.vimly.ml/iTalks/rest/fileUpload.php';
+    let _url: string = 'https://bitehunter.vimly.ml/iTalks/rest/fileUpload.php';
     return this.http.post(_url, formdata)
       .catch(this.errorHandler);
   }
