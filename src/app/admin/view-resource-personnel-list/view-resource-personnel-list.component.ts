@@ -1,10 +1,9 @@
 import { element } from 'protractor';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataTableResource, DataTable } from 'angular5-data-table';
-import { RPersonnel } from '../models/RPersonnel';
-import { Observable } from 'rxjs/Observable';
-import { NewResourcePersonnelService } from '../services/new-resource-personnel.service';
-import { ActiveResourcePersonnelService } from '../services/active-resource-personnel.service';
+import { RPersonnel } from '../../models/RPersonnel';
+import { NewResourcePersonnelService } from '../../services/new-resource-personnel.service';
+import { ActiveResourcePersonnelService } from '../../services/active-resource-personnel.service';
 
 @Component({
   selector: 'view-resource-personnels',

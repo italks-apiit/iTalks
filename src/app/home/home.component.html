@@ -13,14 +13,17 @@
 
     <div class="col order-md-2 text-center">
       <div>
-        <div class="jumbotron" [style.backgroundImage]="'url('+imageUrl+')'">
+        <!-- <div class="jumbotron bgImage" [style.backgroundImage]="'url('+imageUrl+')'"> -->
+        <div class="jumbotron bg-image">
           <div class="transbox">
             <h1 class="display-4">Next Talk in,</h1>
             <br>
-            <count-down [text]="text" units="Days | Hours | Minutes | Seconds" end="{{time}}"></count-down>
+            <count-down [text]="format" units="Days | Hours | Minutes | Seconds" end="{{time}}"></count-down>
 
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content
-              or information.</p>
+            <p class="lead">
+              This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content
+              or information.
+            </p>
             <hr class="my-4">
             <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
             <br>

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpcomingTalkFormComponent implements OnInit {
 
+  upcomingTalk = {};
+
   constructor() { }
 
   ngOnInit() {

@@ -1,4 +1,8 @@
-  .jumbotron {
+.bg-image{
+  background-image: url("../../assets/image_upcoming_talk.jpeg")
+}
+
+.jumbotron {
     background-size: cover;
   }
 

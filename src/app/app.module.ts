@@ -20,15 +20,16 @@ import { HomeResourcePersonnelListComponent } from './home-resource-personnel-li
 import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
 import { RegisterPersonComponent } from './register-person/register-person.component';
 import { FooterComponent } from './footer/footer.component';
-import { ViewResourcePersonnelListComponent } from './view-resource-personnel-list/view-resource-personnel-list.component';
 import { ViewPastTalkComponent } from './view-past-talk/view-past-talk.component';
 import { PastTalkService } from './services/past-talk.service';
 import { NewResourcePersonnelService } from './services/new-resource-personnel.service';
 import { ActiveResourcePersonnelService } from './services/active-resource-personnel.service';
-import { PastTalkFormComponent } from './past-talk-form/past-talk-form.component';
 import { UpcomingTalkFormComponent } from './upcoming-talk-form/upcoming-talk-form.component';
 import { ResourcePersonnelCardComponent } from './resource-personnel-card/resource-personnel-card.component';
 import { LoginComponent } from './login/login.component';
+import { ViewResourcePersonnelListComponent } from './admin/view-resource-personnel-list/view-resource-personnel-list.component';
+import { TalkFormComponent } from './admin/talk-form/talk-form.component';
+import { NewTalkService } from './services/new-talk.service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     ViewResourcePersonnelListComponent,
     ViewPastTalkComponent,
-    PastTalkFormComponent,
+    TalkFormComponent,
     UpcomingTalkFormComponent,
     ResourcePersonnelCardComponent,
     LoginComponent,
@@ -65,8 +66,8 @@ import { LoginComponent } from './login/login.component';
         { path: 'upcoming-talk', component: UpcomingTalkFormComponent },
 
         { path: 'admin/view-resource-personnel-list', component: ViewResourcePersonnelListComponent },
-        { path: 'admin/past-talk/new', component: PastTalkFormComponent },
-        { path: 'admin/past-talk/:id', component: PastTalkFormComponent },
+        { path: 'admin/past-talk/new', component: TalkFormComponent },
+        { path: 'admin/past-talk/:id', component: TalkFormComponent },
       ]
     ),
     DataTableModule.forRoot(),
@@ -76,6 +77,7 @@ import { LoginComponent } from './login/login.component';
     ActiveResourcePersonnelService,
     NewResourcePersonnelService,
     PastTalkService,
+    NewTalkService,
     AuthService
   ],
   bootstrap: [AppComponent]

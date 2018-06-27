@@ -1,4 +1,6 @@
+import { Talk } from './../models/Talk';
 import { Component, OnInit } from '@angular/core';
+import { NewTalkService } from '../services/new-talk.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   time: string
   imageUrl: string
+  talk: Talk;
 
-  text: any = {
+  format: any = {
     "Weeks": "Weeks",
     "Days": "Days",
     "Hours": "Hours",
@@ -17,11 +20,20 @@ export class HomeComponent implements OnInit {
     "Seconds": "Seconds"
   };
 
-  constructor() {
-    this.time = "July 22, 2020";
-    this.imageUrl = "https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg";
-  }
+  constructor(private newTalkService: NewTalkService) { }
 
   ngOnInit() {
+
+    this.newTalkService.getLatestTalk()
+      .subscribe(data => {
+        //console.log(data);
+        this.talk = data;
+        this.time = this.talk.Date;
+      });
+
+
+    // this.time = "July 22, 2020";
+    //this.time = "'2020-12-17";
+    //this.imageUrl = "https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg";
   }
 }

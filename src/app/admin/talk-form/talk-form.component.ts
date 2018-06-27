@@ -1,15 +1,14 @@
-import { Talk } from './../models/Talk';
-import { RPersonnel } from './../models/RPersonnel';
-import { ActiveResourcePersonnelService } from './../services/active-resource-personnel.service';
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { RPersonnel } from '../../models/RPersonnel';
+import { ActiveResourcePersonnelService } from '../../services/active-resource-personnel.service';
 
 @Component({
-  selector: 'past-talk-form',
-  templateUrl: './past-talk-form.component.html',
-  styleUrls: ['./past-talk-form.component.css']
+  selector: 'talk-form',
+  templateUrl: './talk-form.component.html',
+  styleUrls: ['./talk-form.component.css']
 })
-export class PastTalkFormComponent implements OnInit {
+export class TalkFormComponent implements OnInit {
 
   pastTalk = {};
   resourcePersonnelList: RPersonnel[] = [];
@@ -27,12 +26,6 @@ export class PastTalkFormComponent implements OnInit {
     //this.pastTalk;
   }
 
-  onSubmitPastTalk(pastTalkForm) {
-    console.log(pastTalkForm);
-
-    this.checkDate(pastTalkForm);
-  }
-
   onResourcePersonnelChange(e) {
     let selectedPersonId = e.target.value;
     this.selectedResourcePersonnel = this.resourcePersonnelList.find(resourcePersonnel => resourcePersonnel.Person_ID == selectedPersonId);
@@ -43,6 +36,13 @@ export class PastTalkFormComponent implements OnInit {
     const dateSendingToServer = new DatePipe('en-US').transform(pastTalkForm.Date, 'yyyy-MM-dd');
     //const time = new DatePipe('en-US').transform(pastTalkForm.Time, 'HH:mm');
     console.log(dateSendingToServer);
+  }
+
+
+  onSubmitPastTalk(pastTalkForm) {
+    console.log(pastTalkForm);
+
+    this.checkDate(pastTalkForm);
   }
 
 }
