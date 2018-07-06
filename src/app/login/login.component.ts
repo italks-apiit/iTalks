@@ -3,6 +3,7 @@ import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/User';
+import { NavbarService } from '../services/navbar.service';
 
 @Component({
   selector: 'login',
@@ -16,10 +17,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    public nav: NavbarService
   ) { }
 
   ngOnInit() {
+    // this.nav.hide();
   }
 
   onSubmitLogin(form) {

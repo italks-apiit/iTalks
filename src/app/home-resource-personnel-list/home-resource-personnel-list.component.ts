@@ -16,7 +16,7 @@ export class HomeResourcePersonnelListComponent implements OnInit {
     this.activeResourcePersonnelService.getAllResourcePersonnel()
       .subscribe(data => {
         this.resourcePersonnelList = data;
-        console.log(data);
+        //console.log(data);
       });
   }
 

@@ -1,3 +1,5 @@
+import { ItalkService } from './services/italk.service';
+import { NavbarService } from './services/navbar.service';
 import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -30,6 +32,9 @@ import { LoginComponent } from './login/login.component';
 import { ViewResourcePersonnelListComponent } from './admin/view-resource-personnel-list/view-resource-personnel-list.component';
 import { TalkFormComponent } from './admin/talk-form/talk-form.component';
 import { NewTalkService } from './services/new-talk.service';
+import { ViewParticipantListComponent } from './admin/view-participant-list/view-participant-list.component';
+import { UpcomingTalkParticipantService } from './services/upcoming-talk-participant.service';
+import { ViewItalkListComponent } from './admin/view-italk-list/view-italk-list.component';
 
 
 @NgModule({
@@ -49,6 +54,8 @@ import { NewTalkService } from './services/new-talk.service';
     UpcomingTalkFormComponent,
     ResourcePersonnelCardComponent,
     LoginComponent,
+    ViewParticipantListComponent,
+    ViewItalkListComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +73,8 @@ import { NewTalkService } from './services/new-talk.service';
         { path: 'upcoming-talk', component: UpcomingTalkFormComponent },
 
         { path: 'admin/view-resource-personnel-list', component: ViewResourcePersonnelListComponent },
+        { path: 'admin/view-participant-list', component: ViewParticipantListComponent },
+        { path: 'admin/view-italk-list', component: ViewItalkListComponent },
         { path: 'admin/past-talk/new', component: TalkFormComponent },
         { path: 'admin/past-talk/:id', component: TalkFormComponent },
       ]
@@ -78,7 +87,10 @@ import { NewTalkService } from './services/new-talk.service';
     NewResourcePersonnelService,
     PastTalkService,
     NewTalkService,
-    AuthService
+    AuthService,
+    NavbarService,
+    UpcomingTalkParticipantService,
+    ItalkService
   ],
   bootstrap: [AppComponent]
 })

@@ -18,7 +18,7 @@ export class HomeTalkListComponent implements OnInit {
     this.pastTalkService.getAllPastTalks()
       .subscribe(data => {
         this.pastTalkList = data;
-        console.log(data);
+        //console.log(data);
       });
   }
 

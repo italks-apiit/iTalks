@@ -1,5 +1,5 @@
 import { Talk } from './../models/Talk';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -12,5 +12,12 @@ export class NewTalkService {
 
   getLatestTalk(): Observable<Talk> {
     return this.http.get<Talk>(this.apiURL);
+  }
+
+  getAllNewTalks(): Observable<Talk[]> {
+    let params = new HttpParams();
+    params = params.append("type", "all");
+
+    return this.http.get<Talk[]>(this.apiURL, { params: params });
   }
 }
