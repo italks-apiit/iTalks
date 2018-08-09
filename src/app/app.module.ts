@@ -35,6 +35,7 @@ import { NewTalkService } from './services/new-talk.service';
 import { ViewParticipantListComponent } from './admin/view-participant-list/view-participant-list.component';
 import { UpcomingTalkParticipantService } from './services/upcoming-talk-participant.service';
 import { ViewItalkListComponent } from './admin/view-italk-list/view-italk-list.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { ViewItalkListComponent } from './admin/view-italk-list/view-italk-list.
     LoginComponent,
     ViewParticipantListComponent,
     ViewItalkListComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,11 +74,13 @@ import { ViewItalkListComponent } from './admin/view-italk-list/view-italk-list.
         { path: 'view-past-talk/:id', component: ViewPastTalkComponent },
         { path: 'upcoming-talk', component: UpcomingTalkFormComponent },
 
+        { path: 'admin/dashboard', component: DashboardComponent },
+        { path: 'admin/talk-form', component: TalkFormComponent },
         { path: 'admin/view-resource-personnel-list', component: ViewResourcePersonnelListComponent },
         { path: 'admin/view-participant-list', component: ViewParticipantListComponent },
         { path: 'admin/view-italk-list', component: ViewItalkListComponent },
-        { path: 'admin/past-talk/new', component: TalkFormComponent },
-        { path: 'admin/past-talk/:id', component: TalkFormComponent },
+        // { path: 'admin/past-talk/new', component: TalkFormComponent },
+        // { path: 'admin/past-talk/:id', component: TalkFormComponent },
       ]
     ),
     DataTableModule.forRoot(),

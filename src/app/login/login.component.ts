@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitLogin(form) {
-    //console.log(form);
     this.auth.login(this.user)
       .subscribe(data => {
         this.validUser = data;
@@ -36,7 +35,7 @@ export class LoginComponent implements OnInit {
 
   directUser() {
     if (this.validUser) {
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl('admin/dashboard');
     }
     else {
       this.toastr.error("Invalid Credentials");
